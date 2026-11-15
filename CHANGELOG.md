@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+- Docs: demo GIF and badges in the README (the demo uses synthetic agents only).
+- GitHub issue templates (bug report, feature request) with a security-advisory contact link.
+- Test: `tests/test_vendored.py` guards the vendored helpers (`theme.py`, `terminal.py`, `search.py`, `text.py`) against accidental drift; changing one now requires updating its recorded hash and this changelog.
+
 ## 0.2.0
 
 - Plugin id is now `carlosiborra.fleet` (namespaced, so it cannot clash with other `herdr-fleet` plugins). Bind actions as `carlosiborra.fleet.<action>`.

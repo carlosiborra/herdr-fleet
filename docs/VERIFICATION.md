@@ -1,8 +1,8 @@
 # Verification and troubleshooting
 
-This guide describes how version 0.2.0 is tested and provides a repeatable runtime check.
+This guide describes how version 0.2.1 is tested and provides a repeatable runtime check.
 
-## Test coverage (version 0.2.0)
+## Test coverage (version 0.2.1)
 
 | Surface | Observed result |
 | --- | --- |

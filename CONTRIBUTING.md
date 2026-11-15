@@ -22,6 +22,8 @@ Preference additions need explicit review of what reaches disk. Agent focus rema
 
 The terminal, text, theme and search helpers are vendored from the author's other HerdR plugins so this plugin stays self-contained. They are maintained here independently; no sibling plugin is required at runtime.
 
+`tests/test_vendored.py` records a sha256 for each vendored file (`theme.py`, `terminal.py`, `search.py`, `text.py`) and fails if one changes. Change them deliberately: edit the file, update its hash in the test table, and add a CHANGELOG entry saying why.
+
 Keep the code free of Python 3.10+ syntax (`match`, `X | Y` annotations evaluated at runtime); CI runs 3.9.
 
 ## Pull requests
