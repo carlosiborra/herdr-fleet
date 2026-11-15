@@ -24,11 +24,11 @@ Use a throwaway session (`herdr --session scratch`), not your working session. D
 
 1. Run `herdr --version`, `python3 --version` and `herdr config check`. Record versions and the config-check outcome, not config contents.
 2. Optionally run `PYTHONPATH=src python3 tests/live_acceptance.py` (manual only, scratch session only). It makes ten read-only list requests at least 500 ms apart and prints aggregate latency/count only. Record median/max latency.
-3. Invoke `herdr plugin action invoke herdr-fleet.open`. Confirm the popup is centered at 120 columns and 34 rows, totals match expected agents and workspace/tab grouping is useful.
+3. Invoke `herdr plugin action invoke carlosiborra.fleet.open`. Confirm the popup is centered at 120 columns and 34 rows, totals match expected agents and workspace/tab grouping is useful.
 4. Navigate with arrows/j/k, collapse and expand groups, scroll deeply, and confirm pinned attention and selected details. Resize to roughly 40, 80 and 160 columns.
 5. Select an agent, press `p`, and confirm a bounded preview. Dismiss or change selection and confirm previous preview content disappears. Do not save real output.
 6. Press Enter on an agent. Confirm the popup closes and HerdR focuses the selected pane. Repeat using that agent's two-letter uppercase code.
-7. Invoke `herdr-fleet.search`, type a title fragment, select with arrows and press Enter. Repeat with `herdr-fleet.fuzzy` and a subsequence query.
+7. Invoke `carlosiborra.fleet.search`, type a title fragment, select with arrows and press Enter. Repeat with `carlosiborra.fleet.fuzzy` and a subsequence query.
 8. Reopen and exit with q/Escape/Ctrl-C. Confirm the original screen, cursor, input and wrapping work normally.
 
 Stop on wrong-pane focus, retained preview data, abnormal terminal state or repeated hangs. Close only the plugin-owned popup and report which step failed, without pasting private terminal content. Do not stop your HerdR server or disrupt other agents to test outage handling; synthetic tests cover it.

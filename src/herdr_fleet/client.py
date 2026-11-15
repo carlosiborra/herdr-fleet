@@ -12,7 +12,7 @@ class HerdrError(RuntimeError):
 class HerdrClient:
     def __init__(self, binary='herdr', timeout_seconds=2, runner=subprocess.run, plugin_id=None):
         self.binary = binary
-        self.plugin_id = plugin_id or os.environ.get('HERDR_PLUGIN_ID') or 'herdr-fleet'
+        self.plugin_id = plugin_id or os.environ.get('HERDR_PLUGIN_ID') or 'carlosiborra.fleet'
         self.timeout = timeout_seconds
         self.runner = runner
 

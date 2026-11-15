@@ -96,4 +96,4 @@ class PluginIdTests(unittest.TestCase):
         finally:
             if old is not None:
                 os.environ['HERDR_PLUGIN_ID'] = old
-        self.assertEqual(argv[argv.index('--plugin') + 1], 'herdr-fleet')
+        self.assertEqual(argv[argv.index('--plugin') + 1], 'carlosiborra.fleet')

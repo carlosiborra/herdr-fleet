@@ -104,7 +104,7 @@ j/k move  h/l fold  Enter focus  p peek  / filter  q/Esc close
 - Output peek: press `p` to see the last 15 lines of the selected agent.
 - Two-letter jump codes: type `AB` to focus that agent immediately.
 - Grouped tree of workspaces, tabs and agents with fold/unfold, state age and substring filter.
-- `herdr-fleet.fuzzy`: a convenience action that opens a flat, ranked, subsequence-matching finder (`bapi` matches `Build API`).
+- `carlosiborra.fleet.fuzzy`: a convenience action that opens a flat, ranked, subsequence-matching finder (`bapi` matches `Build API`).
 - Theme colors follow your HerdR `[theme.custom]` settings; `NO_COLOR` is respected.
 
 ## How it differs from the built-in agent sidebar
@@ -131,17 +131,17 @@ Add to your HerdR `config.toml`, choosing keys that are free:
 [[keys.command]]
 key = "prefix+a"
 type = "plugin_action"
-command = "herdr-fleet.open"
+command = "carlosiborra.fleet.open"
 description = "agent fleet dashboard"
 
 [[keys.command]]
 key = "prefix+shift+a"
 type = "plugin_action"
-command = "herdr-fleet.search"
+command = "carlosiborra.fleet.search"
 description = "search agents in the fleet dashboard"
 ```
 
-Then run `herdr config check` and `herdr server reload-config`. The plugin never edits your configuration. Actions: `herdr-fleet.open` (tree), `herdr-fleet.search` (tree with search active), `herdr-fleet.fuzzy` (ranked finder).
+Then run `herdr config check` and `herdr server reload-config`. The plugin never edits your configuration. Actions: `carlosiborra.fleet.open` (tree), `carlosiborra.fleet.search` (tree with search active), `carlosiborra.fleet.fuzzy` (ranked finder).
 
 ## Keys
 
@@ -178,7 +178,7 @@ See [SECURITY.md](SECURITY.md) to report issues.
 
 ```sh
 herdr plugin update
-herdr plugin uninstall herdr-fleet
+herdr plugin uninstall carlosiborra.fleet
 ```
 
 Remove your keybindings as well.

@@ -1,4 +1,4 @@
-id = "herdr-fleet"
+id = "carlosiborra.fleet"
 name = "HerdR Fleet"
 version = "0.2.0"
 min_herdr_version = "0.9.5"

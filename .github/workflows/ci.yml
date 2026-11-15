@@ -28,6 +28,6 @@ jobs:
               m = tomllib.load(f)
           for key in ("id", "name", "version", "min_herdr_version"):
               assert isinstance(m.get(key), str) and m[key], key
-          assert m["id"] == "herdr-fleet"
+          assert m["id"] == "carlosiborra.fleet"
           print("manifest ok", m["version"], m["min_herdr_version"])
           PY
