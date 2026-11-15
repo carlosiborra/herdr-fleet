@@ -20,7 +20,7 @@ Keep models and renderers pure. Add model/render tests before behavior changes, 
 
 Preference additions need explicit review of what reaches disk. Agent focus remains the only allowed agent mutation; preview is explicit and memory-only. Treat terminal strings as untrusted. Preserve the last valid model on invalid updates and the terminal cleanup context on all exits.
 
-The terminal, text, theme and search helpers are vendored from the author's other HerdR plugins so this plugin stays self-contained. They are maintained here independently; no sibling plugin is required at runtime.
+The terminal, text, theme and search helpers are vendored from the author's other Herdr plugins so this plugin stays self-contained. They are maintained here independently; no sibling plugin is required at runtime.
 
 `tests/test_vendored.py` records a sha256 for each vendored file (`theme.py`, `terminal.py`, `search.py`, `text.py`) and fails if one changes. Change them deliberately: edit the file, update its hash in the test table, and add a CHANGELOG entry saying why.
 
@@ -28,9 +28,11 @@ Keep the code free of Python 3.10+ syntax (`match`, `X | Y` annotations evaluate
 
 ## Pull requests
 
-Describe the change, why it is needed and the tests you ran. Use synthetic identities and paths. Do not attach real pane output, titles, commands, working directories, session IDs, config or raw CLI diagnostics. Include HerdR, Python and OS versions.
+Describe the change, why it is needed and the tests you ran. Use synthetic identities and paths. Do not attach real pane output, titles, commands, working directories, session IDs, config or raw CLI diagnostics. Include Herdr, Python and OS versions.
 
 `tests/live_acceptance.py` is manual-only and must be run against a throwaway session (`herdr --session scratch`), never your working one; it is excluded from CI and from unittest discovery. Follow [verification](docs/VERIFICATION.md) for native checks; do not export HERDR_ENV to bypass the guard.
+
+Write `herdr` for the command and Herdr for the product; never HerdR.
 
 ## License
 

@@ -1,4 +1,4 @@
-"""Drift guard for helpers vendored from the author's other HerdR plugins."""
+"""Drift guard for helpers vendored from the author's other Herdr plugins."""
 import hashlib
 import unittest
 from pathlib import Path

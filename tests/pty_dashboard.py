@@ -1,4 +1,4 @@
-"""Synthetic PTY fixture. Does not invoke HerdR or read real agents."""
+"""Synthetic PTY fixture. Does not invoke Herdr or read real agents."""
 import sys
 
 from herdr_fleet.app import main

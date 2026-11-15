@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+- Naming: the product is spelled "Herdr" everywhere (README, docs, manifest name "Herdr Fleet", user-facing strings, tests); `herdr` is the command. The vendored helpers (`theme.py`, `terminal.py`, `search.py`, `text.py`) contained no HerdR spelling, so their recorded hashes are unchanged.
+- README: pitch, benefits, install and keybinding now open the page; demo GIF follows, text previews are collapsed, and a suite list and non-affiliation note were added.
+
 ## 0.2.1
 
 - Docs: demo GIF and badges in the README (the demo uses synthetic agents only).

@@ -1,6 +1,6 @@
 # How Fleet works
 
-Fleet renders an agent tree in a plugin-owned interactive pane. HerdR owns agent detection, session state and actual focus. Fleet observes that state and holds its display state in memory.
+Fleet renders an agent tree in a plugin-owned interactive pane. Herdr owns agent detection, session state and actual focus. Fleet observes that state and holds its display state in memory.
 
 For example, selecting a Codex agent in the `API` tab and pressing Enter queues one `agent focus` request. The background worker performs it; a successful response exits the event loop, and the terminal context restores the original input settings and screen. A failed focus leaves the dashboard open with an inline error. This path is covered with fake clients and a real PTY; native focus after popup exit is checked manually.
 
@@ -23,7 +23,7 @@ For example, selecting a Codex agent in the `API` tab and pressing Enter queues 
 ```mermaid
 flowchart LR
     User[Keyboard input] -->|selects or filters| Controller[Controller]
-    CLI[HerdR CLI] -->|returns agent records| Model[Fleet model]
+    CLI[Herdr CLI] -->|returns agent records| Model[Fleet model]
     Model -->|produces stable rows| Controller
     Controller -->|supplies view state| Renderer[Pure renderer]
     Renderer -->|produces bounded lines| App[Event loop]
@@ -34,7 +34,7 @@ flowchart LR
 
 The worker performs one agent-list call per interval, default one second with a 500 ms floor. Label snapshots refresh separately about every 30 seconds. Input and rendering continue while CLI work runs. Only one operation runs at a time, so a slow request can delay the next poll or queued action, bounded by the client timeout. Explicit focus and preview requests take priority when the worker becomes free.
 
-The model validates a whole list before replacing its records. Existing panes retain insertion rank and jump code across reordered payloads. A status, sequence, agent-type or session change resets the observed age and starts a two-second highlight. New records have unknown state ages. A duration is shown only after an observed change, and a session replacement resets age knowledge. HerdR supplies no timestamp.
+The model validates a whole list before replacing its records. Existing panes retain insertion rank and jump code across reordered payloads. A status, sequence, agent-type or session change resets the observed age and starts a two-second highlight. New records have unknown state ages. A duration is shown only after an observed change, and a session replacement resets age knowledge. Herdr supplies no timestamp.
 
 Normal tree search uses a substring over title, workspace, tab and type. Fuzzy mode scores separate fields and their combined text, favors early/consecutive/word-boundary matches and breaks ties with insertion rank. It is a greedy subsequence matcher, not fzf's algorithm. Fuzzy search additionally includes cwd.
 
@@ -50,6 +50,6 @@ The registered actions in [herdr-plugin.toml](../herdr-plugin.toml) launch the i
 
 ## Failure and compatibility
 
-Bad data or unavailable HerdR keeps the last valid model visible and polling retries. Label failures fall back to IDs. Explicit focus failures remain actionable without closing. Exit paths restore termios attributes, signal handlers, cursor, wrapping and alternate screen; SIGKILL cannot be caught. In-flight worker calls can finish after exit begins, bounded by their timeout.
+Bad data or unavailable Herdr keeps the last valid model visible and polling retries. Label failures fall back to IDs. Explicit focus failures remain actionable without closing. Exit paths restore termios attributes, signal handlers, cursor, wrapping and alternate screen; SIGKILL cannot be caught. In-flight worker calls can finish after exit begins, bounded by their timeout.
 
-The plugin targets the HerdR 0.9.5 plugin API. Linux runtime behavior, persistent placements and popup focus are not covered by the automated tests. See [verification](VERIFICATION.md) for test coverage and the manual checks.
+The plugin targets the Herdr 0.9.5 plugin API. Linux runtime behavior, persistent placements and popup focus are not covered by the automated tests. See [verification](VERIFICATION.md) for test coverage and the manual checks.

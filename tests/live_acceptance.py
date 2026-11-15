@@ -14,7 +14,7 @@ from herdr_fleet.client import HerdrClient, HerdrError
 
 def main():
     if os.environ.get('HERDR_ENV') != '1':
-        print('Run this check inside a HerdR-managed pane.', file=sys.stderr)
+        print('Run this check inside a Herdr-managed pane.', file=sys.stderr)
         return 2
     client = HerdrClient(os.environ.get('HERDR_BIN_PATH', 'herdr'))
     samples = []

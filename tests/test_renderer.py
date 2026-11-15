@@ -55,9 +55,9 @@ class RendererTests(unittest.TestCase):
 
     def test_empty_error_and_filter(self):
         f = Fleet()
-        view = View(f, (), error='HerdR unavailable; retrying', query='nomatch')
+        view = View(f, (), error='Herdr unavailable; retrying', query='nomatch')
         text = '\n'.join(render(view, 80, 15, Palette(mode='none')))
-        self.assertIn('HerdR unavailable', text)
+        self.assertIn('Herdr unavailable', text)
         self.assertIn('No matching agents', text)
 
     def test_peek_responsive_and_sanitized(self):

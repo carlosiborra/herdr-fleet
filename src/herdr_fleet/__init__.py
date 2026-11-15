@@ -1,1 +1,1 @@
-"""Memory-only agent dashboard for HerdR."""
+"""Memory-only agent dashboard for Herdr."""

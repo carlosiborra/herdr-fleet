@@ -1,6 +1,6 @@
 # Security policy
 
-herdr-fleet is not sandboxed. HerdR plugins run with your user's privileges, so review the source before installing. See "Privacy and trust" in the README for what this plugin reads and runs.
+herdr-fleet is not sandboxed. Herdr plugins run with your user's privileges, so review the source before installing. See "Privacy and trust" in the README for what this plugin reads and runs.
 
 ## Reporting a vulnerability
 

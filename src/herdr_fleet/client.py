@@ -21,21 +21,21 @@ class HerdrClient:
             completed = self.runner([self.binary] + list(args), text=True,
                                     capture_output=True, timeout=self.timeout, check=False)
         except subprocess.TimeoutExpired as exc:
-            raise HerdrError('HerdR timed out; retrying') from exc
+            raise HerdrError('Herdr timed out; retrying') from exc
         except OSError as exc:
-            raise HerdrError('HerdR unreachable; retrying') from exc
+            raise HerdrError('Herdr unreachable; retrying') from exc
         if completed.returncode:
             # Raw diagnostics can contain sensitive content. Keep UI errors generic.
-            raise HerdrError('HerdR command failed; retrying')
+            raise HerdrError('Herdr command failed; retrying')
         return completed.stdout
 
     def _run(self, args):
         try:
             payload = json.loads(self._output(args))
         except (TypeError, ValueError) as exc:
-            raise HerdrError('HerdR returned invalid JSON; retrying') from exc
+            raise HerdrError('Herdr returned invalid JSON; retrying') from exc
         if not isinstance(payload, dict) or not isinstance(payload.get('result'), dict):
-            raise HerdrError('HerdR returned an invalid response; retrying')
+            raise HerdrError('Herdr returned an invalid response; retrying')
         return payload['result']
 
     @staticmethod
@@ -47,7 +47,7 @@ class HerdrClient:
     def agents(self):
         agents = self._run(('agent', 'list')).get('agents')
         if not isinstance(agents, list):
-            raise HerdrError('HerdR returned an invalid agent list; retrying')
+            raise HerdrError('Herdr returned an invalid agent list; retrying')
         return agents
 
     def labels(self):

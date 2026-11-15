@@ -1,6 +1,6 @@
 id = "carlosiborra.fleet"
-name = "HerdR Fleet"
-version = "0.2.1"
+name = "Herdr Fleet"
+version = "0.2.2"
 min_herdr_version = "0.9.5"
 description = "Agent triage dashboard: attention section, status counts, output peek, jump codes and a grouped tree of coding agents"
 platforms = ["linux", "macos"]

@@ -48,7 +48,7 @@ def run(controller, client, terminal, palette):
                         controller.error = ('Workspace labels unavailable; using IDs' if operation == 'labels'
                                             else 'Preview unavailable; press p to dismiss' if operation == 'peek'
                                             else 'Focus failed; choose an agent and retry' if operation == 'focus'
-                                            else 'HerdR unavailable or invalid response; retrying')
+                                            else 'Herdr unavailable or invalid response; retrying')
                 future = None
             if future is None:
                 if queued:
@@ -97,7 +97,7 @@ def run(controller, client, terminal, palette):
 
 def main(argv=None, environ=None, client=None):
     env = dict(os.environ if environ is None else environ)
-    parser = argparse.ArgumentParser(description='Selectable live HerdR agent tree')
+    parser = argparse.ArgumentParser(description='Selectable live Herdr agent tree')
     parser.add_argument('--open', action='store_true', help='Launch the registered dashboard pane')
     parser.add_argument('--poll', type=float, help='Polling seconds, minimum 0.5')
     group = parser.add_mutually_exclusive_group()
@@ -105,7 +105,7 @@ def main(argv=None, environ=None, client=None):
     group.add_argument('--fuzzy', action='store_true', help='Open ranked agent fuzzy search')
     args = parser.parse_args(argv)
     if env.get('HERDR_ENV') != '1':
-        print('HerdR Fleet must run inside a HerdR-managed session.', file=sys.stderr)
+        print('Herdr Fleet must run inside a Herdr-managed session.', file=sys.stderr)
         return 2
     client = client or HerdrClient(env.get('HERDR_BIN_PATH', 'herdr'),
                                     plugin_id=env.get('HERDR_PLUGIN_ID'))
@@ -117,10 +117,10 @@ def main(argv=None, environ=None, client=None):
             client.open_dashboard(mode)
             return 0
         except HerdrError:
-            print('HerdR Fleet could not open its dashboard pane.', file=sys.stderr)
+            print('Herdr Fleet could not open its dashboard pane.', file=sys.stderr)
             return 1
     if not sys.stdin.isatty() or not sys.stdout.isatty():
-        print('HerdR Fleet requires an interactive terminal.', file=sys.stderr)
+        print('Herdr Fleet requires an interactive terminal.', file=sys.stderr)
         return 2
     root = Path(env['HERDR_PLUGIN_CONFIG_DIR']) if env.get('HERDR_PLUGIN_CONFIG_DIR') else None
     prefs = load(root)
@@ -137,10 +137,10 @@ def main(argv=None, environ=None, client=None):
         return 130
     except Exception:
         # Restore first and avoid printing data-bearing tracebacks to action logs.
-        print('HerdR Fleet stopped after an unexpected error.', file=sys.stderr)
+        print('Herdr Fleet stopped after an unexpected error.', file=sys.stderr)
         return 1
     finally:
         try:
             save(root, Preferences(controller.poll_interval, frozenset(controller.collapsed)))
         except OSError:
-            print('HerdR Fleet could not save UI preferences.', file=sys.stderr)
+            print('Herdr Fleet could not save UI preferences.', file=sys.stderr)
