@@ -1,0 +1,90 @@
+
+WIDTH 40 (synthetic fixture)
+FLEET  2work 1done 1idle 1block 1?
+Live session  |  age ? = start time unk…
+/
+────────────────────────────────────────
+  NEEDS ATTENTION 4
+› AB ✓ [CL] Implementation: Review Un… ?
+  AE ! [CX] Site: Approval required    ?
+  AA ◴ [CX] Implementation: Implement… ?
+  AD ◴ [CX] Site: Long title Long tit… ?
+  ▾ Engineering  [1 working, 1 done, 1 …
+  ├─ ▾ Implementation  [2 agents]
+  │  ├─ AA ◴ [CX] Implement API        ?
+  │  └─ AB ✓ [CL] Review Unicode 界 c… ?
+  └─ ▾ Review  [1 agent]
+     └─ AC ○ [CX] Awaiting task        ?
+  ▾ Docs  [1 working, 1 blocked]
+  └─ ▾ Site  [2 agents]
+     ├─ AD ◴ [CX] Long title Long tit… ?
+     └─ AE ! [CX] Approval required    ?
+  ▾ Personal  [1 unknown]
+  └─ ▾ w3:t1  [1 agent]
+     └─ AF ? [CX] Unclassified         ?
+
+
+
+TITLE  Review Unicode 界 café
+w1 / w1:t1 / w1:p2 | claude | done age …
+j/k ↑↓  Enter go  h/l fold  p / q
+
+WIDTH 80 (synthetic fixture)
+AGENT FLEET  |  2 working  1 done  1 idle  1 blocked  1 unknown
+Live session  |  age ? = start time unknown  |  AA..ZZ jump
+/
+────────────────────────────────────────────────────────────────────────────────
+  NEEDS ATTENTION 4
+› AB ✓ [CL] Implementation: Review Unicode 界 café                    done age ?
+  AE ! [CX] Site: Approval required                                blocked age ?
+  AA ◴ [CX] Implementation: Implement API                          working age ?
+  AD ◴ [CX] Site: Long title Long title Long title Long title Lon… working age ?
+  ▾ Engineering  [1 working, 1 done, 1 idle]
+  ├─ ▾ Implementation  [2 agents]
+  │  ├─ AA ◴ [CX] Implement API                                    working age ?
+  │  └─ AB ✓ [CL] Review Unicode 界 café                              done age ?
+  └─ ▾ Review  [1 agent]
+     └─ AC ○ [CX] Awaiting task                                       idle age ?
+PEEK  Review Unicode
+Synthetic preview only
+Tests pass; waiting for review
+
+
+
+
+
+
+
+TITLE  Review Unicode 界 café
+w1 / w1:t1 / w1:p2 | claude | done age unknown | /example/project
+j/k move  h/l fold  Enter focus  p peek  / filter  q/Esc close
+
+WIDTH 160 (synthetic fixture)
+AGENT FLEET  |  2 working  1 done  1 idle  1 blocked  1 unknown
+Live session  |  age ? = start time unknown  |  AA..ZZ jump
+/
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  NEEDS ATTENTION 4                                                                                      │ PEEK  Review Unicode
+› AB ✓ [CL] Implementation: Review Unicode 界 café                                            done age ? │ Synthetic preview only
+  AE ! [CX] Site: Approval required                                                        blocked age ? │ Tests pass; waiting for review
+  AA ◴ [CX] Implementation: Implement API                                                  working age ? │
+  AD ◴ [CX] Site: Long title Long title Long title Long title Long title Long title Long … working age ? │
+  ▾ Engineering  [1 working, 1 done, 1 idle]                                                             │
+  ├─ ▾ Implementation  [2 agents]                                                                        │
+  │  ├─ AA ◴ [CX] Implement API                                                            working age ? │
+  │  └─ AB ✓ [CL] Review Unicode 界 café                                                      done age ? │
+  └─ ▾ Review  [1 agent]                                                                                 │
+     └─ AC ○ [CX] Awaiting task                                                               idle age ? │
+  ▾ Docs  [1 working, 1 blocked]                                                                         │
+  └─ ▾ Site  [2 agents]                                                                                  │
+     ├─ AD ◴ [CX] Long title Long title Long title Long title Long title Long title Long … working age ? │
+     └─ AE ! [CX] Approval required                                                        blocked age ? │
+  ▾ Personal  [1 unknown]                                                                                │
+  └─ ▾ w3:t1  [1 agent]                                                                                  │
+     └─ AF ? [CX] Unclassified                                                             unknown age ? │
+                                                                                                         │
+                                                                                                         │
+                                                                                                         │
+TITLE  Review Unicode 界 café
+w1 / w1:t1 / w1:p2 | claude | done age unknown | /example/project
+j/k move  h/l fold  Enter focus  p peek  / filter  q/Esc close

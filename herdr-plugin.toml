@@ -1,0 +1,32 @@
+id = "herdr-fleet"
+name = "HerdR Fleet"
+version = "0.2.0"
+min_herdr_version = "0.9.5"
+description = "Agent triage dashboard: attention section, status counts, output peek, jump codes and a grouped tree of coding agents"
+platforms = ["linux", "macos"]
+
+[[actions]]
+id = "open"
+title = "Open agent fleet"
+contexts = ["global"]
+command = ["python3", "bin/herdr-fleet", "--open"]
+
+[[actions]]
+id = "search"
+title = "Search agents"
+contexts = ["global"]
+command = ["python3", "bin/herdr-fleet", "--open", "--search"]
+
+[[actions]]
+id = "fuzzy"
+title = "Fuzzy find agents"
+contexts = ["global"]
+command = ["python3", "bin/herdr-fleet", "--open", "--fuzzy"]
+
+[[panes]]
+id = "dashboard"
+title = "Agent Fleet"
+command = ["python3", "bin/herdr-fleet"]
+placement = "popup"
+width = 120
+height = 34
