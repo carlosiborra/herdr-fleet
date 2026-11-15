@@ -1,0 +1,33 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.9", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: PYTHONPATH=src python3 -m unittest discover -s tests
+      - name: Manifest
+        if: matrix.python-version == '3.13'
+        run: |
+          python3 - <<'PY'
+          import tomllib
+          with open("herdr-plugin.toml", "rb") as f:
+              m = tomllib.load(f)
+          for key in ("id", "name", "version", "min_herdr_version"):
+              assert isinstance(m.get(key), str) and m[key], key
+          assert m["id"] == "herdr-fleet"
+          print("manifest ok", m["version"], m["min_herdr_version"])
+          PY
