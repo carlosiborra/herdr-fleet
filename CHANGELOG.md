@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- CI: run the Linux jobs on `ubuntu-24.04`. `ubuntu-latest` moved to Ubuntu 26, where Python 3.9 (still supported by this plugin) is not available.
+
 ## 0.2.2
 
 - Naming: the product is spelled "Herdr" everywhere (README, docs, manifest name "Herdr Fleet", user-facing strings, tests); `herdr` is the command. The vendored helpers (`theme.py`, `terminal.py`, `search.py`, `text.py`) contained no HerdR spelling, so their recorded hashes are unchanged.
